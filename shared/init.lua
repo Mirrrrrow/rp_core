@@ -27,13 +27,15 @@ end
 
 Shared.print(('Debug is %s!'):format(Shared.DEBUG and 'enabled' or 'disabled'))
 
+require 'shared.utils.tables'
+
 CreateThread(function()
     for moduleName, moduleState in pairs(lib.load('data.modules')) do
         if moduleState then
             Shared.debug(('Loading module \'%s\' on %s-side...'):format(moduleName, lib.context))
             local success, result = pcall(require, ('%s.modules.%s.main'):format(lib.context, moduleName))
             if not success then
-                Shared.print(('Failed to load module \'%s\' on %s-side!'):format(moduleName, lib.context, result))
+                Shared.print(('Failed to load module \'%s\' on %s-side!'):format(moduleName, lib.context))
             else
                 Shared.debug(('Module \'%s\' on %s-side loaded successfully!'):format(moduleName, lib.context))
             end
