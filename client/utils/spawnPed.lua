@@ -1,4 +1,5 @@
 local spawnedPeds, n = {}, 0
+
 ---Spawns a ped
 ---@param model string|number
 ---@param position vector4
