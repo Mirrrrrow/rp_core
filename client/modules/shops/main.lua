@@ -4,7 +4,7 @@ local function openShop(shopKey)
     local shop = shops[shopKey]
     if not shop then return end
 
-    Shared.debug(('Opening shop \'%s\'!'):format(shopKey))
+    Shared.debug(('Opening shop \'%s\'.'):format(shopKey))
 end
 
 for key, shopData in pairs(lib.load('data.shops.shops')) do
@@ -22,10 +22,10 @@ for key, shopData in pairs(lib.load('data.shops.shops')) do
             if self.entity then return end
 
             local entity = Client.spawnPed(cashier.model, cashier.coords, cashier.animation)
-            if not entity then return Shared.debug(('Could not spawn npc \'%s\'!'):format(key)) end
+            if not entity then return Shared.debug(('Could not spawn npc \'%s\'.'):format(key)) end
             exports.ox_target:addLocalEntity(entity, {
                 {
-                    label = 'Einkaufen',
+                    label = locale('shops.target.open_label'),
                     icon = 'fas fa-shopping-cart',
                     onSelect = function()
                         openShop(key)

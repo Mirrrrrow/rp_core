@@ -1,1 +1,7 @@
-{}
+{
+  "shops": {
+    "target": {
+      "open_label": "Open shop"
+    }
+  }
+}
