@@ -3,5 +3,10 @@
     "target": {
       "open_label": "Open shop"
     }
+  },
+  "dev_tools": {
+    "target": {
+      "copy_coords_label": "Copy coordinates"
+    }
   }
 }

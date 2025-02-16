@@ -16,23 +16,23 @@ dependencies {
     'ox_lib'
 }
 
-client_script 'client/init.lua'
+client_script 'src/client/main.lua'
 
 shared_scripts {
     '@es_extended/imports.lua',
     '@ox_lib/init.lua',
-    'shared/init.lua'
+    'src/shared/main.lua'
 }
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
-    'server/init.lua'
+    'src/server/main.lua'
 }
 
 files {
     'locales/**',
     'data/**',
-    'client/utils/**',
-    'client/modules/**',
-    'shared/utils/**',
+    'src/client/functions/**',
+    'src/client/modules/**',
+    'src/shared/functions/**',
 }

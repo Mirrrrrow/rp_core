@@ -1,16 +1,22 @@
 local spawnedPeds, n = {}, 0
 
----Spawns a ped
----@param model string|number
----@param position vector4
----@param animation { name: string }|{ dict: string, name: string, flag: number }|nil;
+---@class PedDataRaw
+---@field model string|number
+---@field animation? PedAnimation
+
+---@class PedData : PedDataRaw
+---@field coords vector4|{x: number, y: number, z: number, w: number}
+
+---@param data PedData
 ---@return number?
-function Client.spawnPed(model, position, animation)
-    model = lib.requestModel(model)
+local function spawnPed(data)
+    local model = lib.requestModel(data.model)
     if not model then return end
 
-    local entity = CreatePed(0, model, position.x, position.y, position.z, position.w, false, true)
+    local coords = data.coords
+    local entity = CreatePed(0, model, coords.x, coords.y, coords.z, coords.w, false, true)
 
+    local animation = data.animation
     if animation and animation.dict then
         lib.requestAnimDict(animation.dict)
         TaskPlayAnim(entity, animation.dict, animation.name, 8.0, 0.0, -1, animation.flag, 0, false, false, false)
@@ -40,3 +46,5 @@ AddEventHandler('onResourceStop', function(resource)
         end
     end
 end)
+
+return spawnPed

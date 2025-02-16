@@ -1,4 +1,3 @@
 return {
-    npcs = true,
-    shops = true,
+    npcs = 'client',
 }

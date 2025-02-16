@@ -1,7 +1,8 @@
+---@type table<string, NPCData>
 local NPCS <const> = lib.load('data.npcs.npcs')
 
 for key, npcData in pairs(NPCS) do
-    local mappedOptions = Shared.mapTable(npcData.options, function(_, option)
+    local mappedOptions = Shared.functions.mapTable(npcData.options, function(option)
         local onSelect
 
         local action = option.action
@@ -37,14 +38,31 @@ for key, npcData in pairs(NPCS) do
         }
     end)
 
+
+    local blip = npcData.blip
+    if blip then
+        Client.functions.createBlip({
+            coords = npcData.coords,
+            label = blip.label,
+            scale = blip.scale,
+            sprite = blip.sprite,
+            color = blip.color,
+        })
+    end
+
+    local ped = npcData.ped
     lib.points.new({
-        npcKey = key,
         coords = npcData.coords.xyz,
         distance = 50,
         onEnter = function(self)
             if self.entity then return end
 
-            local entity = Client.spawnPed(npcData.model, npcData.coords, npcData.animation)
+            local entity = Client.functions.spawnPed({
+                coords = npcData.coords,
+                model = ped.model,
+                animation = ped.animation,
+            })
+
             if not entity then return Shared.debug(('Could not spawn npc \'%s\'!'):format(key)) end
             exports.ox_target:addLocalEntity(entity, mappedOptions)
         end,

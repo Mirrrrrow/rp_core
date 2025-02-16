@@ -1,0 +1,1 @@
+---@alias PedAnimation { name: string }|{ dict: string, name: string, flag: number? }|nil;
