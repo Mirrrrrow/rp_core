@@ -1,17 +1,22 @@
+---@class VehicleData
+---@field make string
+---@field name string
+---@field displayLabel string
+
 ---@param model number|string
----@return { make: string, name: string, displayLabel: string }
+---@return VehicleData
 local function parseVehicleData(model)
     local hash = lib.requestModel(model, 5000)
     local make = GetMakeNameFromVehicleModel(hash)
 
-    if not make then
+    if make == '' then
         local make2 = GetMakeNameFromVehicleModel(model:gsub(':W', ''))
 
-        if make2 ~= 'CARNOTFOUND' then make = make2 end
+        if make2 ~= 'CARNOTFOUND' and make2 ~= '' then make = make2 end
     end
 
     local data = {
-        make = make and GetLabelText(make) or '',
+        make = make ~= '' and GetLabelText(make) or '',
         name = GetLabelText(GetDisplayNameFromVehicleModel(hash)),
     }
 
