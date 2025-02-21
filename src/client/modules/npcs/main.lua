@@ -51,28 +51,11 @@ for key, npcData in pairs(NPCS) do
     end
 
     local ped = npcData.ped
-    lib.points.new({
-        coords = npcData.coords.xyz,
-        distance = 50,
-        onEnter = function(self)
-            if self.entity then return end
-
-            local entity = Client.functions.spawnPed({
-                coords = npcData.coords,
-                model = ped.model,
-                animation = ped.animation,
-            })
-
-            if not entity then return Shared.debug(('Could not spawn npc \'%s\'!'):format(key)) end
-            exports.ox_target:addLocalEntity(entity, mappedOptions)
-        end,
-        onExit = function(self)
-            local entity = self.entity
-            if not entity then return end
-
-            exports.ox_target:removeLocalEntity(entity)
-            Client.deleteEntity(entity)
-            self.entity = nil
-        end
+    ---@diagnostic disable-next-line: inject-field
+    ped.coords = npcData.coords
+    Client.functions.addPedInteraction({
+        key = key,
+        ped = ped --[[@as PedData]],
+        interactions = mappedOptions,
     })
 end
