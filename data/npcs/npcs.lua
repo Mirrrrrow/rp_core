@@ -61,5 +61,5 @@ return {
                 }
             }
         }
-    }
+    },
 } --[[@as table<string, NPCData>]]

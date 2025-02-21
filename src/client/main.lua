@@ -9,7 +9,7 @@ Client.functions = require 'src.client.functions.main'
 
 CreateThread(function()
     for moduleName, moduleState in pairs(lib.load('data.modules') --[[@as table<string, boolean|'client'|'server'|'shared'>]]) do
-        if moduleState or moduleState == 'client' or moduleState == 'shared' then
+        if moduleState and (moduleState == 'client' or moduleState == 'shared') then
             Shared.debug(('Loading module \'%s\' on client-side...'):format(moduleName))
             local success, result = pcall(require, (MODULES_PATH .. '.main'):format(moduleName))
             if not success then
