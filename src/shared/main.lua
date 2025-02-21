@@ -1,5 +1,6 @@
 Shared = {
     DEBUG = GetConvarInt('core:debug', 1) == 1,
+    DEBUG_NOTIFY = GetConvarInt('core:debug_notify', 1) == 1,
     PREFIX = '^1[^5core^1]^7 ',
     functions = {}
 }
@@ -29,6 +30,22 @@ end
 function Shared.debug(...)
     if not Shared.DEBUG then return end
     Shared.print(...)
+
+    if Shared.DEBUG_NOTIFY then
+        local data = {
+            title = 'DEBUG',
+            description = ...,
+            position = 'top-left',
+            type = 'info',
+            iconColor = 'orange'
+        }
+
+        if IsDuplicityVersion() then
+            lib.notify(-1, data)
+        else
+            lib.notify(data)
+        end
+    end
 end
 
 Shared.print(('Debug is %s!'):format(Shared.DEBUG and 'enabled' or 'disabled'))
