@@ -9,9 +9,9 @@ This resource adds many new features to your server. Each feature is represented
 ## 🤖 Current Features
 
 - NPCs
-  - Configure dynamic and interactive NPCs on your map. Each NPC has it own interaction options, you can use presets just as just sending a notification and add custom actions.
-- Shops (WIP)
-  - Ownable shops.
+  - Configure dynamic and interactive NPCs on your map. Each NPC has its own interaction options, supports blips, and can use presets like sending notifications or custom actions.
+- Vehicle Rental
+  - Rent vehicles at various locations. Each rental includes an NPC, a blip on the map, and multiple spawn points. Prices are calculated per minute.
 
 ## 🤖 Exports
 
