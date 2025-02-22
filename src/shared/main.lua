@@ -49,3 +49,5 @@ function Shared.debug(...)
 end
 
 Shared.print(('Debug is %s!'):format(Shared.DEBUG and 'enabled' or 'disabled'))
+
+exports('debug', Shared.debug)
