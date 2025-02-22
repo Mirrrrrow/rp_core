@@ -6,6 +6,7 @@
 ---@field label string
 ---@field type string
 ---@field coords vector4
+---@field managementCoords vector3
 ---@field price number
 
 return {
@@ -15,6 +16,7 @@ return {
             label = 'LTD Gasoline Grove Street',
             type = 'limited',
             coords = vec4(-47.3459, -1758.6971, 28.4210, 51.1130),
+            managementCoords = vec3(-44.88, -1748.82, 29.22),
             price = 10000
         }
     }

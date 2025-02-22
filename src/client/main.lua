@@ -21,8 +21,3 @@ CreateThread(function()
         end
     end
 end)
-
-RegisterCommand('TESTT', function(source, args, raw)
-    lib.print.info(lib.getVehicleProperties(cache.vehicle))
-    lib.print.info(json.encode(Entity(cache.vehicle).state.vehicleId))
-end)

@@ -8,6 +8,10 @@ local function openShop(shopType, shopId)
     })
 end
 
+local function openShopManagement(shopType, shopId)
+    Shared.debug('shoüp management', shopType, shopId)
+end
+
 for key, shopData in pairs(SHOP_CONFIG.shops) do
     local shopType = shopData.type
     local shopGeneralities = SHOP_CONFIG.types[shopType]
@@ -36,5 +40,17 @@ for key, shopData in pairs(SHOP_CONFIG.shops) do
                 openShop(shopType, key)
             end
         },
+    })
+
+    exports.ox_target:addSphereZone({
+        coords = shopData.managementCoords,
+        radius = 0.5,
+        options = {
+            label = 'Open shop management',
+            icon = 'fas fa-store',
+            onSelect = function()
+                openShopManagement(shopType, key)
+            end
+        }
     })
 end
