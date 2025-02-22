@@ -9,6 +9,7 @@
 ---@class VehicleRentalItem
 ---@field icon string
 ---@field pricePerMinute number
+---@field modifications? table|false
 
 return {
     airport = {
@@ -32,11 +33,15 @@ return {
             bmx = {
                 icon = 'fas fa-bicycle',
                 pricePerMinute = 5,
+                modifications = {
+                    plate = '000000'
+                }
             }
         },
         spawnpoints = {
-            vec4(-1047.4242, -2725.9915, 18.5588, 274.4802),
-            vec4(-1046.9692, -2726.8735, 19.5580, 285.9687)
+            vec4(-1039.6387, -2724.8054, 20.1631, 299.3374),
+            --vec4(-1047.4242, -2725.9915, 18.5588, 274.4802),
+            --vec4(-1046.9692, -2726.8735, 19.5580, 285.9687)
         }
     }
 } --[[@as table<string, VehicleRental>]]

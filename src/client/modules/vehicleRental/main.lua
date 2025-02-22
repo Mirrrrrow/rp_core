@@ -83,6 +83,10 @@ local function openVehicleRentalInput(key, data, model, vehicleData, label)
 
     if not success then return end
     ESX.Game.SpawnVehicle(model, spawnpoint.xyz, spawnpoint.w, function(vehicle)
+        if vehicleData.modifications then
+            lib.setVehicleProperties(vehicle, vehicleData.modifications)
+        end
+        Wait(0) -- Could delete this?
         local props = lib.getVehicleProperties(vehicle)
         local networkId = NetworkGetNetworkIdFromEntity(vehicle)
         TriggerServerEvent('vehicleRental:server:setVehicleAsOwned', model, props, networkId)
