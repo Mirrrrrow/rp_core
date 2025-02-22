@@ -6,9 +6,8 @@
 
 ---@class ShopItem
 ---@field name string
----@field label string
 ---@field price number
----@field metadata table|false
+---@field metadata? table
 
 return {
     twentyfourseven = {
@@ -28,9 +27,7 @@ return {
         defaultInventory = {
             {
                 name = 'bread',
-                label = 'Bread',
                 price = 15,
-                metadata = false
             }
         }
     },
@@ -51,9 +48,7 @@ return {
         defaultInventory = {
             {
                 name = 'water',
-                label = 'Water',
                 price = 15,
-                metadata = false
             }
         }
     },
@@ -74,9 +69,7 @@ return {
         defaultInventory = {
             {
                 name = 'water',
-                label = 'Water',
                 price = 15,
-                metadata = false
             }
         }
     },
@@ -97,9 +90,7 @@ return {
         defaultInventory = {
             {
                 name = 'beer',
-                label = 'Beer',
                 price = 15,
-                metadata = false
             }
         }
     },
@@ -120,9 +111,7 @@ return {
         defaultInventory = {
             {
                 name = 'water',
-                label = 'Water',
                 price = 15,
-                metadata = false
             }
         }
     },
@@ -143,9 +132,7 @@ return {
         defaultInventory = {
             {
                 name = 'bread',
-                label = 'Bread',
                 price = 15,
-                metadata = false
             }
         }
     }

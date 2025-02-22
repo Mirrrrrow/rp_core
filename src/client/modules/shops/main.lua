@@ -1,6 +1,13 @@
 ---@type ShopConfig
 local SHOP_CONFIG <const> = lib.load('data.shops.shops')
 
+local function openShop(shopType, shopId)
+    exports.ox_inventory:openInventory('shop', {
+        type = ('default_shop_%s'):format(shopType),
+        id = shopId
+    })
+end
+
 for key, shopData in pairs(SHOP_CONFIG.shops) do
     local shopType = shopData.type
     local shopGeneralities = SHOP_CONFIG.types[shopType]
@@ -26,6 +33,7 @@ for key, shopData in pairs(SHOP_CONFIG.shops) do
             label = 'Open shop',
             icon = 'fas fa-store',
             onSelect = function()
+                openShop(shopType, key)
             end
         },
     })
