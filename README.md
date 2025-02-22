@@ -5,6 +5,7 @@
 ## 📜 Description
 
 This resource adds many new features to your server. Each feature is represented as a "module" so you can disable them.
+**rp_core** uses a modified ox_inventory version.
 
 ## 🤖 Current Features
 
