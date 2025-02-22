@@ -73,7 +73,8 @@ local function openVehicleRentalInput(key, data, model, vehicleData, label)
         })
     end
 
-    local success, result = lib.callback.await('vehicleRental:server:rentVehicle', false, key, model, duration, method)
+    local success, result = lib.callback.await('vehicleRental:server:rentVehicle', false, key, model, duration, method,
+        label)
     lib.notify({
         title = data.label,
         description = result,

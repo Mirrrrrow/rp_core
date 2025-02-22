@@ -10,6 +10,7 @@
 ---@field icon string
 ---@field pricePerMinute number
 ---@field modifications? table|false
+---@field contract? boolean
 
 return {
     airport = {
@@ -33,6 +34,7 @@ return {
             bmx = {
                 icon = 'fas fa-bicycle',
                 pricePerMinute = 5,
+                contract = true,
                 modifications = {
                     plate = '000000'
                 }
