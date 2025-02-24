@@ -9,4 +9,6 @@ return {
     parseVehicleData = require(FUNCTIONS_PATH:format('parseVehicleData')),
     ---@type fun(data: PaymentMethodData): string|false
     selectPaymentMethod = require(FUNCTIONS_PATH:format('selectPaymentMethod')),
+    ---@type fun(key: string, duration: number): boolean
+    hasCooldown = require(FUNCTIONS_PATH:format('hasCooldown')),
 }

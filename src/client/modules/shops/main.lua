@@ -1,15 +1,14 @@
 ---@type ShopConfig
 local SHOP_CONFIG <const> = lib.load('data.shops.shops')
 
+---@module "src.client.modules.shops.management"
+local shopManagement = require(MODULES_PATH:format('shops.management'))
+
 local function openShop(shopType, shopId)
     exports.ox_inventory:openInventory('shop', {
         type = ('default_shop_%s'):format(shopType),
         id = shopId
     })
-end
-
-local function openShopManagement(shopType, shopId)
-    Shared.debug('shoüp management', shopType, shopId)
 end
 
 for key, shopData in pairs(SHOP_CONFIG.shops) do
@@ -49,7 +48,7 @@ for key, shopData in pairs(SHOP_CONFIG.shops) do
             label = 'Open shop management',
             icon = 'fas fa-store',
             onSelect = function()
-                openShopManagement(shopType, key)
+                shopManagement.openShopManagement(shopType, key)
             end
         }
     })
