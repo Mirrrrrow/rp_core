@@ -1,6 +1,10 @@
 ---@type ShopConfig
 local SHOP_CONFIG <const> = lib.load('data.shops.shops')
 
+local function openShopMangementMenu(shop, shopType, shopId)
+
+end
+
 local function openShopBuyAlert(shop, shopType, shopId)
     local retval = lib.alertDialog({
         header = shop.label,
@@ -46,6 +50,8 @@ local function openShopManagement(shopType, shopId)
     if not isShopOwned then
         return openShopBuyAlert(shop, shopType, shopId)
     end
+
+    openShopMangementMenu(shop, shopType, shopId)
 end
 
 return {
