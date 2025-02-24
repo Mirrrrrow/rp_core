@@ -1,5 +1,6 @@
 Server = {
-    functions = require 'src.server.functions.main'
+    functions = require 'src.server.functions.main',
+    cache = {}
 }
 
 FUNCTIONS_PATH = 'src.server.functions.%s'
@@ -17,5 +18,14 @@ CreateThread(function()
                 Shared.debug(('Module \'%s\' on server-side loaded successfully!'):format(moduleName))
             end
         end
+    end
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+    if resource ~= cache.resource then return end
+
+    for key, data in pairs(Server.cache) do
+        Shared.debug(('Saving cache data for key \'%s\'...'):format(key))
+        data()
     end
 end)
