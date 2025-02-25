@@ -1,7 +1,6 @@
 ---@type ShopConfig
 local SHOP_CONFIG <const> = lib.load('data.shops.shops')
 
-require(MODULES_PATH:format('shops.inventories'))
 require(MODULES_PATH:format('shops.management'))
 
 local _shopCache = {}
@@ -38,3 +37,12 @@ lib.callback.register('shop:server:getShopOwnership', function(source, shopType,
 
     return shopData.owner ~= 'none', shopData.owner == xPlayer.getIdentifier()
 end)
+
+
+for key, shopTypeData in pairs(SHOP_CONFIG.types) do
+    local shopId = ('default_shop_%s'):format(key)
+    exports.ox_inventory:RegisterShop(shopId, {
+        name = shopTypeData.label,
+        inventory = shopTypeData.defaultInventory,
+    })
+end
