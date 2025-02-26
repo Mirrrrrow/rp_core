@@ -21,7 +21,11 @@ local function addPedInteraction(data)
             if not entity then return end
 
             exports.ox_target:removeLocalEntity(entity)
-            Client.deleteEntity(entity)
+            if DoesEntityExist(entity) then
+                SetEntityAsMissionEntity(entity, false, true)
+                DeleteEntity(entity)
+            end
+
             self.entity = nil
         end
     })

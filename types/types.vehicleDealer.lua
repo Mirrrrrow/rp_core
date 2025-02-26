@@ -1,4 +1,11 @@
 ---@class VehicleDealerConfig
 ---@field coords vector4
+---@field radius number
 ---@field blip BlipDataRaw
 ---@field ped PedDataRaw
+---@field vehicles table<string, VehicleDealerVehicleConfig>
+
+---@class VehicleDealerVehicleConfig
+---@field coords vector4
+---@field price number
+---@field modifications table
