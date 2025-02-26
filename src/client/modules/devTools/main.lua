@@ -2,6 +2,7 @@ RegisterCommand('pvd', function(source, args, raw)
     if not cache.vehicle then
         return lib.notify({ type = 'error', description = 'You are not in a vehicle!' })
     end
+
     lib.print.info(lib.getVehicleProperties(cache.vehicle))
     lib.print.info(Entity(cache.vehicle).state.vehicleId)
 end)

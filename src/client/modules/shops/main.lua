@@ -15,8 +15,7 @@ local function openShop(shopType)
 end
 
 for shopType, shopData in pairs(SHOPS) do
-    local blip = shopData.blip
-    local ped = shopData.ped
+    local blip, ped = shopData.blip, shopData.ped
 
     for _, coords in pairs(shopData.locations) do
         if blip then

@@ -1,0 +1,4 @@
+---@class VehicleDealerConfig
+---@field coords vector4
+---@field blip BlipDataRaw
+---@field ped PedDataRaw

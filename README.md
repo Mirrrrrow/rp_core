@@ -23,12 +23,18 @@
 - Rent vehicles at designated locations.
 - Includes NPCs, blips, and multiple spawn points.
 - Pricing is calculated per minute.
-- Receive a rental contract in your inventory as proof.
+- Receive a rental contract in your inventory as proof of rental.
 
-### 🏪 Shops (WIP)
+### 🏪 Shops
 
 - Multiple shop types (e.g., 24/7, LTD, Ammunation).
 - Each shop type has an own inventory with content.
+
+### 🚗 Vehicle Shops
+
+- Multiple vehicle shops
+- Cars are spawned for users to preview
+- Receive a buy contract in your inventory as proof of purchase.
 
 ## 📡 Exports
 
