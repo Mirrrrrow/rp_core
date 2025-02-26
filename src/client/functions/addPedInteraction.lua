@@ -15,6 +15,8 @@ local function addPedInteraction(data)
 
             if not entity then return Shared.debug(('Could not spawn npc \'%s\'!'):format(data.key or 'PedInteraction')) end
             exports.ox_target:addLocalEntity(entity, data.interactions)
+
+            self.entity = entity
         end,
         onExit = function(self)
             local entity = self.entity
