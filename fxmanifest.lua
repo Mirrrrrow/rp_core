@@ -12,6 +12,7 @@ license 'GNU General Public License v3.0'
 
 dependencies {
     'es_extended',
+    'ox_target',
     'oxmysql',
     'ox_lib'
 }
