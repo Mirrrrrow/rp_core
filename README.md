@@ -40,6 +40,10 @@ _(To be documented...)_
 
 _(To be documented...)_
 
+### Shared
+
+_(To be documented...)_
+
 ## 📥 Download
 
 This resource is still under development. If you want to contribute, or use it, you can download the source code.
