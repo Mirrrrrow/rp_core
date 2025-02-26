@@ -6,9 +6,9 @@
 
 `rp_core` introduces multiple new features to enhance your FiveM server experience. Each feature is modular, allowing you to enable or disable them individually.
 
-🔹 **Uses es_extended, ox_target and ox_lib.**
-🔹 **Uses a modified version of ox_inventory.**
-🔹 **High performance and good security.**
+🔹 **Uses es_extended, ox_target and ox_lib.** <br>
+🔹 **Uses a modified version of ox_inventory.** <br>
+🔹 **High performance and good security.** <br>
 
 ## 🚀 Features
 
