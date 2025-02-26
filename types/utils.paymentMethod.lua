@@ -1,0 +1,4 @@
+---@class PaymentMethodData
+---@field price number
+---@field label string?
+---@field allowBlackMoney boolean?

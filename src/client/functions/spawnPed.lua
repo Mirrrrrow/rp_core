@@ -1,12 +1,5 @@
 local spawnedPeds, n = {}, 0
 
----@class PedDataRaw
----@field model string|number
----@field animation? PedAnimation
-
----@class PedData : PedDataRaw
----@field coords vector4|{x: number, y: number, z: number, w: number}
-
 ---@param data PedData
 ---@return number?
 local function spawnPed(data)

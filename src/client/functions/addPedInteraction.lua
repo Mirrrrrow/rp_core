@@ -1,13 +1,3 @@
----@class PedInteractionData
----@field key? string
----@field ped PedData
----@field interactions PedInteraction|PedInteraction[]
-
----@class PedInteraction
----@field label string
----@field icon string
----@field onSelect function
-
 ---@param data PedInteractionData
 local function addPedInteraction(data)
     local ped = data.ped

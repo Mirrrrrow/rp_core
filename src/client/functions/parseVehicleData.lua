@@ -1,8 +1,3 @@
----@class VehicleData
----@field make string
----@field name string
----@field displayLabel string
-
 ---@param model number|string
 ---@return VehicleData
 local function parseVehicleData(model)

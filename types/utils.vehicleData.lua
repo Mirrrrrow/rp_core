@@ -1,0 +1,4 @@
+---@class VehicleData
+---@field make string
+---@field name string
+---@field displayLabel string

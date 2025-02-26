@@ -1,8 +1,3 @@
----@class PaymentMethodData
----@field price number
----@field label string?
----@field allowBlackMoney boolean?
-
 local defaultPaymentMethod <const> = 'money'
 local paymentMethodLocales <const> = {
     header = 'Choose a payment method',
@@ -44,7 +39,7 @@ local function getPaymentMethods(data)
 end
 
 ---@param data PaymentMethodData
----@return string
+---@return string|false
 local function selectPaymentMethod(data)
     local price = data.price
     assert(price and type(price) == 'number', 'price must be a number')
@@ -72,6 +67,7 @@ local function selectPaymentMethod(data)
 
     local retval = lib.inputDialog(paymentMethodLocales.header, rows)
 
+    ---@diagnostic disable-next-line: return-type-mismatch
     return retval and retval[1] or false
 end
 
