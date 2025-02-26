@@ -1,30 +1,49 @@
 # ROLEPLAY CORE RESOURCE
 
-**This resource is currently WIP.**
+🚧 **This resource is a Work in Progress (WIP).** 🚧
 
 ## 📜 Description
 
-This resource adds many new features to your server. Each feature is represented as a "module" so you can disable them.
-**rp_core** uses a modified ox_inventory version.
+`rp_core` introduces multiple new features to enhance your FiveM server experience. Each feature is modular, allowing you to enable or disable them individually.
 
-## 🤖 Current Features
+🔹 **Uses es_extended, ox_target and ox_lib.**
+🔹 **Uses a modified version of ox_inventory.**
+🔹 **High performance and good security.**
 
-- NPCs
-  - Configure dynamic and interactive NPCs on your map. Each NPC has its own interaction options, supports blips, and can use presets like sending notifications or custom actions.
-- Vehicle Rental
-  - Rent vehicles at various locations. Each rental includes an NPC, a blip on the map, and multiple spawn points. Prices are calculated per minute. As a proof of rental you get a contract in your inventory.
-- Shops (WIP)
-  - Different shop types (e.g 24/7, LTD, Ammunation) can can be owned and filled with products of your choice. There is a default inventory if it's not owned and you can set your own prices. Watch out to refill the stock regularly.
+## 🚀 Features
 
-## 🤖 Exports
+### 🏠 NPC System
 
-Client:
-Server:
+- Configure dynamic and interactive NPCs.
+- Each NPC has custom interaction options.
+- Supports blips and preset actions like sending notifications or executing custom commands.
 
-## 📚 Download
+### 🚗 Vehicle Rental
 
-As mentioned this resource is currently WIP. For now if you want to contribute you may just download the source code.
+- Rent vehicles at designated locations.
+- Includes NPCs, blips, and multiple spawn points.
+- Pricing is calculated per minute.
+- Receive a rental contract in your inventory as proof.
 
-## 💡 License
+### 🏪 Shops (WIP)
 
-> **This resource is licensed under GNU GPL v3.0.**
+- Multiple shop types (e.g., 24/7, LTD, Ammunation).
+- Each shop type has an own inventory with content.
+
+## 📡 Exports
+
+### Client
+
+_(To be documented...)_
+
+### Server
+
+_(To be documented...)_
+
+## 📥 Download
+
+This resource is still under development. If you want to contribute, or use it, you can download the source code.
+
+## 📜 License
+
+> **Licensed under GNU GPL v3.0.**
