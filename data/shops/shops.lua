@@ -1,10 +1,3 @@
----@class ShopConfig
----@field label string
----@field blip BlipDataRaw
----@field ped PedDataRaw
----@field inventory table[]
----@field locations vector4[]
-
 return {
     twentyfourseven = {
         label = 'Twenty Four Seven',

@@ -1,0 +1,13 @@
+---@class VehicleRentalConfig
+---@field label string
+---@field coords vector4
+---@field ped PedDataRaw
+---@field blip BlipDataRaw|false
+---@field items table<string, VehicleRentalItemConfig>
+---@field spawnpoints vector4[]
+
+---@class VehicleRentalItemConfig
+---@field icon string
+---@field pricePerMinute number
+---@field modifications? table|false
+---@field contract? boolean

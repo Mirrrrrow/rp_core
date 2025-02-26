@@ -1,17 +1,3 @@
----@class VehicleRental
----@field label string
----@field coords vector4
----@field ped PedDataRaw
----@field blip BlipDataRaw|false
----@field items table<string, VehicleRentalItem>
----@field spawnpoints vector4[]
-
----@class VehicleRentalItem
----@field icon string
----@field pricePerMinute number
----@field modifications? table|false
----@field contract? boolean
-
 return {
     airport = {
         label = 'Airport Bicycle Rental',
@@ -46,4 +32,4 @@ return {
             --vec4(-1046.9692, -2726.8735, 19.5580, 285.9687)
         }
     }
-} --[[@as table<string, VehicleRental>]]
+} --[[@as table<string, VehicleRentalConfig>]]

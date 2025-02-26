@@ -1,7 +1,10 @@
----@type table<string, VehicleRental>
+---@type table<string, VehicleRentalConfig>
 local VEHICLE_RENTALS <const> = lib.load('data.vehicleRental.vehicleRental')
+
 local awaitingResponses = {}
 local awaitingItems = {}
+
+-- Usefull for leo to get the current rentals or other stuff. Just keep it unused now.
 local currentRentals, n = {}, 1
 local currentRentalsByVehicleId = {}
 

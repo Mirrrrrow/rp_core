@@ -1,8 +1,8 @@
----@type table<string, VehicleRental>
+---@type table<string, VehicleRentalConfig>
 local VEHICLE_RENTALS <const> = lib.load('data.vehicleRental.vehicleRental')
 local cachedMenus = {}
 
----@param data VehicleRental
+---@param data VehicleRentalConfig
 ---@return vector4?
 local function getSpawnpoint(data)
     local nearestPoint, minDistance = nil, math.huge
@@ -18,10 +18,10 @@ local function getSpawnpoint(data)
 end
 
 ---@param key string
----@param data VehicleRental
+---@param data VehicleRentalConfig
 ---@param model string
 ---@param label string
----@param vehicleData VehicleRentalItem
+---@param vehicleData VehicleRentalItemConfig
 local function openVehicleRentalInput(key, data, model, vehicleData, label)
     local retval = lib.inputDialog(data.label, {
         {
@@ -96,7 +96,7 @@ end
 
 
 ---@param key string
----@param data VehicleRental
+---@param data VehicleRentalConfig
 local function openVehicleRental(key, data)
     local cachedMenu = cachedMenus[key]
     if cachedMenu then
