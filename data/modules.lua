@@ -12,5 +12,6 @@ return {
     npcs = 'client',
     vehicleRental = 'shared',
     shops = 'shared',
-    vehicleDealer = 'shared'
+    vehicleDealer = 'shared',
+    garages = 'shared'
 }

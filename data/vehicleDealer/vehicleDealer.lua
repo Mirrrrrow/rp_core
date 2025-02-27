@@ -42,7 +42,6 @@ return {
                     driftTyres = false,
                     engineHealth = 1000,
                     extras = {},
-                    fuelLevel = 0,
                     interiorColor = 0,
                     livery = -1,
                     modAPlate = -1,

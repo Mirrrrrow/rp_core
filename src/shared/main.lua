@@ -10,6 +10,8 @@ SHARED_MODULES_PATH = 'src.shared.modules.%s'
 
 Shared.functions = require 'src.shared.functions.main'
 
+require 'data.enums'
+
 lib.locale()
 
 ---Outputs something to trace listeners.
