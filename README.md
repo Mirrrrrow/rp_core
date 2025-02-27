@@ -1,6 +1,7 @@
 # ROLEPLAY CORE RESOURCE
 
 🚧 **This resource is a Work in Progress (WIP).** 🚧
+🛑 **Looking for UI Designers and (optional) Frontend Developers, message 'mirow' on discord!** 🛑
 
 ## 📜 Description
 
@@ -36,12 +37,18 @@
 - Cars are spawned for users to preview
 - Receive a buy contract in your inventory as proof of purchase.
 
-### 🚘 Garage (WIP)
+### 🚘 Garage
 
 - Multiple garage locations defined by poly zones.
 - Park your vehicle using ox radial menu.
 - And get it out from the ped working there.
 - Define allowed types for each garage (automobile, bike, ...).
+
+### 🚘 Vehicle Interaction Menu (WIP)
+
+- Carkeys are item. Give them to your friends or steal them!
+- Carkeys can be changed and duplicated by the mechanic!
+- Change the engine state using the radial menu!
 
 ## 📡 Exports
 
