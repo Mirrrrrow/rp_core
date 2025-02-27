@@ -36,6 +36,13 @@
 - Cars are spawned for users to preview
 - Receive a buy contract in your inventory as proof of purchase.
 
+### 🚘 Garage (WIP)
+
+- Multiple garage locations defined by poly zones.
+- Park your vehicle using ox radial menu.
+- And get it out from the ped working there.
+- Define allowed types for each garage (automobile, bike, ...).
+
 ## 📡 Exports
 
 ### Client
