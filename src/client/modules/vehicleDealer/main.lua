@@ -1,6 +1,7 @@
 ---@type table<string, VehicleDealerConfig>
 local VEHICLE_DEALERS <const> = lib.load('data.vehicleDealer.vehicleDealer')
 
+local cachedVehicleData = {}
 local spawnedVehicles = {}
 
 local function openVehicleDealer(key)
@@ -8,7 +9,8 @@ local function openVehicleDealer(key)
 end
 
 local function spawnVehicles(key)
-    spawnedVehicles[key] = {}
+    cachedVehicleData[key] = {}
+    spawnedVehicles[key]   = {}
 
     for name, data in pairs(VEHICLE_DEALERS[key]?.vehicles or {}) do
         local coords = data.coords
@@ -28,11 +30,28 @@ local function spawnVehicles(key)
                 label = 'Get vehicle information',
                 icon = 'fas fa-file-contract',
                 onSelect = function()
-                    Shared.debug('getVehicleInformation')
+                    local vehicleData = cachedVehicleData[key][name]
+                    if not vehicleData then return end
+
+                    lib.notify({
+                        title = VEHICLE_DEALERS[key].blip.label,
+                        description = ('**Vehicle:** %s  \n**Type:** %s  \n**Seats:** %s  \n**Price:** $%s'):format(
+                            vehicleData.label,
+                            vehicleData.type,
+                            vehicleData.seats,
+                            vehicleData.price
+                        ),
+                    })
                 end
             })
 
             spawnedVehicles[key][name] = spawnedVehicle
+            cachedVehicleData[key][name] = {
+                label = Client.functions.parseVehicleData(name).displayLabel,
+                type = GetVehicleType(spawnedVehicle),
+                seats = GetVehicleModelNumberOfSeats(name),
+                price = data.price,
+            }
         end)
     end
 end
@@ -47,6 +66,7 @@ local function deleteVehicles(key)
     end
 
     spawnedVehicles[key] = {}
+    cachedVehicleData[key] = {}
 end
 
 for key, dealer in pairs(VEHICLE_DEALERS) do
