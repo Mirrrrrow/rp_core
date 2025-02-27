@@ -1,6 +1,6 @@
 # ROLEPLAY CORE RESOURCE
 
-🚧 **This resource is a Work in Progress (WIP).** 🚧
+🚧 **This resource is a Work in Progress (WIP).** 🚧 <br>
 🛑 **Looking for UI Designers and (optional) Frontend Developers, message 'mirow' on discord!** 🛑
 
 ## 📜 Description
