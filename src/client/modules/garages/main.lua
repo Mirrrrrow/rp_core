@@ -8,6 +8,9 @@ local function openGarageMenu(key)
         {
             title = 'Close',
             icon = 'fas fa-xmark',
+            onSelect = function()
+                lib.hideContext()
+            end
         },
         {
             title = '',

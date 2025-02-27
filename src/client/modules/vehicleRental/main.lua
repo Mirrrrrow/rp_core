@@ -92,6 +92,9 @@ local function openVehicleRental(key, data)
         {
             title = 'Close',
             icon = 'fas fa-xmark',
+            onSelect = function()
+                lib.hideContext()
+            end
         },
         {
             title = '',

@@ -62,20 +62,32 @@ local function openVehicleDealer(key)
     end
 
     menuId = ('vehicle_dealer_%s'):format(key)
-
     lib.registerContext({
         id = menuId,
         title = vehicleDealer.blip.label,
-        options = Shared.functions.mapTable(vehicleDealer.vehicles, function(vehicleData, spawnName)
-            local label = Client.functions.parseVehicleData(spawnName).displayLabel
-            return {
-                title = ('%s - %s$'):format(label, vehicleData.price),
-                icon = 'fas fa-car',
-                onSelect = function()
-                    buyVehicle(key, spawnName, label)
-                end
-            }
-        end)
+        options = lib.table.merge({
+                {
+                    title = 'Close',
+                    icon = 'fas fa-xmark',
+                    onSelect = function()
+                        lib.hideContext()
+                    end
+                },
+                {
+                    title = '',
+                    disabled = true
+                }
+            },
+            Shared.functions.mapTable(vehicleDealer.vehicles, function(vehicleData, spawnName)
+                local label = Client.functions.parseVehicleData(spawnName).displayLabel
+                return {
+                    title = ('%s - %s$'):format(label, vehicleData.price),
+                    icon = 'fas fa-car',
+                    onSelect = function()
+                        buyVehicle(key, spawnName, label)
+                    end
+                }
+            end))
     })
 
     cachedMenus[key] = menuId
