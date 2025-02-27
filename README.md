@@ -53,7 +53,7 @@
 - And get it out from the ped working there.
 - Define allowed types for each garage (automobile, bike, ...).
 
-### 🚘 Vehicle Interaction Menu (WIP)
+### 🚘 Vehicle Interaction Menu
 
 - Carkeys are item. Give them to your friends or steal them!
 - Change the engine state using the radial menu!
