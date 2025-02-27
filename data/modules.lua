@@ -13,5 +13,6 @@ return {
     vehicleRental = 'shared',
     shops = 'shared',
     vehicleDealer = 'shared',
-    garages = 'shared'
+    garages = 'shared',
+    carKeys = 'shared'
 }

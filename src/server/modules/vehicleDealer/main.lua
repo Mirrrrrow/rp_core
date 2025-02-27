@@ -21,10 +21,15 @@ lib.callback.register('vehicleDealer:server:buyVehicle',
         local metadata = {
             vehicleDealer = key,
             model = model,
+            vehicleLabel = vehicleLabel,
             buyDate = buyDate,
             description = ('**Vehicle Dealer:** %s  \n**Vehicle:** %s  \n**Buydate:** %s')
                 :format(vehicleDealerLabel, vehicleLabel, os.date('%d.%m.%Y %H:%M:%S', buyDate)),
         }
+        if not exports.ox_inventory:CanCarryItem(playerId, 'car_keys', 1, { mockdata = 1 }) then
+            return false, 'Not enough space in inventory!'
+        end
+
         if not exports.ox_inventory:CanCarryItem(playerId, 'vehicle_dealer_contract', 1, metadata) then
             return false, 'Not enough space in inventory!'
         end
@@ -73,6 +78,8 @@ RegisterServerEvent('vehicleDealer:server:setVehicleAsOwned', function(key, mode
     MySQL.insert.await('INSERT INTO owned_vehicles (vehicleId, owner, plate, vehicle, type) VALUES (?, ?, ?, ?, ?)', {
         vehicleId, xPlayer.getIdentifier(), props.plate, json.encode(props), GetVehicleType(vehicle)
     })
+
+    exports['rp_core']:giveCarKeys(playerId, vehicleId, model, metadata.vehicleLabel)
 
     awaitingResponses[playerId] = nil
 end)
