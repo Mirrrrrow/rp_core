@@ -19,6 +19,15 @@
 - Each NPC has custom interaction options.
 - Supports blips and preset actions like sending notifications or executing custom commands.
 
+### 🚗 Vehicle IDs
+
+- Vehicles are identified by their vehicle IDs, stored with statebags.
+- This id also indicates what the vehicle is:
+  - e.g 6 numbers -> normal vehicle
+  - e.g 3 numbers -> rental vehicle
+  - e.g x numbers -> gov / state vehicle
+  - e.g x numbers -> faction vehicle
+
 ### 🚗 Vehicle Rental
 
 - Rent vehicles at designated locations.
@@ -49,6 +58,12 @@
 - Carkeys are item. Give them to your friends or steal them!
 - Carkeys can be changed and duplicated by the mechanic!
 - Change the engine state using the radial menu!
+
+### 🚘 Vehicle Registration (WIP)
+
+- Vehicles have to be registered at the DMV (Department of Motor Vehicles).
+- You'll pay insurance fees and can change your plate.
+- LEO officers can control if the vehicle is registered.
 
 ## 📡 Exports
 
