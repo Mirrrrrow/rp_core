@@ -45,6 +45,10 @@ local function buyVehicle(key, spawnName, vehicleLabel)
 
         SetVehicleNumberPlateText(spawnedVehicle, '000000')
 
+        SetVehicleUndriveable(spawnedVehicle, true)
+        SetVehicleEngineOn(spawnedVehicle, false, true, true)
+        SetVehicleDoorsLocked(spawnedVehicle, 2)
+
         Wait(0) -- Could delete this?
         local props = lib.getVehicleProperties(spawnedVehicle)
         local networkId = NetworkGetNetworkIdFromEntity(spawnedVehicle)

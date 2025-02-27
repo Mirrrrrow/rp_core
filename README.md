@@ -56,7 +56,6 @@
 ### 🚘 Vehicle Interaction Menu (WIP)
 
 - Carkeys are item. Give them to your friends or steal them!
-- Carkeys can be changed and duplicated by the mechanic!
 - Change the engine state using the radial menu!
 
 ### 🚘 Vehicle Registration (WIP)

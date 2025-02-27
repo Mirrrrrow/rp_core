@@ -9,7 +9,10 @@ RegisterNetEvent('carKeys:client:toggleLockState', function(networkId)
     local message = isLocked and 'Vehicle unlocked!' or 'Vehicle locked!'
     SetVehicleDoorsLocked(vehicle, newState)
 
-    lib.playAnim(cache.ped, 'anim@mp_player_intmenu@key_fob@', 'fob_click_fp', 8.0, -8.0, 1000, 50)
+    if not cache.vehicle then
+        lib.playAnim(cache.ped, 'anim@mp_player_intmenu@key_fob@', 'fob_click_fp', 8.0, -8.0, 1000, 50)
+    end
+
     CreateThread(function()
         SetVehicleLights(vehicle, 2)
         Wait(150)

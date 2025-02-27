@@ -49,6 +49,10 @@ local function openGarageMenu(key)
                         lib.setVehicleProperties(spawnedVehicle, vehicle.props)
                     end
 
+                    SetVehicleUndriveable(spawnedVehicle, true)
+                    SetVehicleEngineOn(spawnedVehicle, false, true, true)
+                    SetVehicleDoorsLocked(spawnedVehicle, 2)
+
                     Wait(0) -- Could delete this?
                     local networkId = NetworkGetNetworkIdFromEntity(spawnedVehicle)
                     TriggerServerEvent('garages:server:setVehicleAsSpawned', networkId)

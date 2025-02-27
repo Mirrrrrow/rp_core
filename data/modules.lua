@@ -14,5 +14,6 @@ return {
     shops = 'shared',
     vehicleDealer = 'shared',
     garages = 'shared',
-    carKeys = 'shared'
+    carKeys = 'shared',
+    vehicleInteractionMenu = 'shared',
 }
