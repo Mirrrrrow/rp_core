@@ -2,10 +2,84 @@
 local VEHICLE_DEALERS <const> = lib.load('data.vehicleDealer.vehicleDealer')
 
 local cachedVehicleData = {}
+local cachedMenus = {}
 local spawnedVehicles = {}
 
+local function buyVehicle(key, spawnName, vehicleLabel)
+    local vehicleDealer = VEHICLE_DEALERS[key]
+    if not vehicleDealer then return end
+
+    local vehicle = vehicleDealer.vehicles[spawnName]
+    if not vehicle then return end
+
+    local vehicleDealerLabel = vehicleDealer.blip.label
+    local method = Client.functions.selectPaymentMethod({
+        price = vehicle.price,
+        label = ('%s: %s'):format(vehicleDealerLabel, vehicleLabel),
+    })
+    if not method then return end
+
+    local spawnpoint = Client.functions.reducePoints(vehicleDealer.spawnpoints, true)
+    if not spawnpoint then
+        return lib.notify({
+            title = vehicleDealer.blip.label,
+            description = 'No available spawnpoints.',
+            type = 'error'
+        })
+    end
+
+
+    local success, result = lib.callback.await('vehicleDealer:server:buyVehicle', false, key, spawnName, method,
+        vehicleDealerLabel, vehicleLabel)
+    lib.notify({
+        title = vehicleDealerLabel,
+        description = result,
+        type = success and 'success' or 'error'
+    })
+
+    if not success then return end
+    ESX.Game.SpawnVehicle(spawnName, spawnpoint.xyz, spawnpoint.w, function(spawnedVehicle)
+        if vehicle.modifications then
+            lib.setVehicleProperties(spawnedVehicle, vehicle.modifications)
+        end
+
+        SetVehicleNumberPlateText(spawnedVehicle, '000000')
+
+        Wait(0) -- Could delete this?
+        local props = lib.getVehicleProperties(spawnedVehicle)
+        local networkId = NetworkGetNetworkIdFromEntity(spawnedVehicle)
+        TriggerServerEvent('vehicleDealer:server:setVehicleAsOwned', key, spawnName, props, networkId)
+    end)
+end
+
 local function openVehicleDealer(key)
-    Shared.debug('openVehicleDealer')
+    local vehicleDealer = VEHICLE_DEALERS[key]
+    if not vehicleDealer then return end
+
+    local menuId = cachedMenus[key]
+    if menuId then
+        return lib.showContext(menuId)
+    end
+
+    menuId = ('vehicle_dealer_%s'):format(key)
+
+    lib.registerContext({
+        id = menuId,
+        title = vehicleDealer.blip.label,
+        options = Shared.functions.mapTable(vehicleDealer.vehicles, function(vehicleData, spawnName)
+            local label = Client.functions.parseVehicleData(spawnName).displayLabel
+            return {
+                title = ('%s - %s$'):format(label, vehicleData.price),
+                icon = 'fas fa-car',
+                onSelect = function()
+                    buyVehicle(key, spawnName, label)
+                end
+            }
+        end)
+    })
+
+    cachedMenus[key] = menuId
+    openVehicleDealer(key)
 end
 
 local function spawnVehicles(key)

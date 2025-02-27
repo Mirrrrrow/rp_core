@@ -2,21 +2,6 @@
 local VEHICLE_RENTALS <const> = lib.load('data.vehicleRental.vehicleRental')
 local cachedMenus = {}
 
----@param data VehicleRentalConfig
----@return vector4?
-local function getSpawnpoint(data)
-    local nearestPoint, minDistance = nil, math.huge
-    for _, coords in ipairs(data.spawnpoints) do
-        local distance = #(cache.coords - coords.xyz)
-
-        if distance < minDistance and ESX.Game.IsSpawnPointClear(coords.xyz, 5.0) then
-            nearestPoint, minDistance = coords, distance
-        end
-    end
-
-    return nearestPoint
-end
-
 ---@param key string
 ---@param data VehicleRentalConfig
 ---@param model string
@@ -63,7 +48,7 @@ local function openVehicleRentalInput(key, data, model, vehicleData, label)
         type = 'info'
     })
 
-    local spawnpoint = getSpawnpoint(data)
+    local spawnpoint = Client.functions.reducePoints(data.spawnpoints, true)
     if not spawnpoint then
         return lib.notify({
             title = data.label,

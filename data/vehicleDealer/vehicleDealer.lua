@@ -14,6 +14,9 @@ return {
                 name = 'WORLD_HUMAN_GUARD_STAND'
             }
         },
+        spawnpoints = {
+            vec4(259.2756, -1156.4631, 28.2687, 92.6486)
+        },
         vehicles = {
             sanchez = {
                 coords = vec4(259.6059, -1149.4108, 27.7664, 175.3161),

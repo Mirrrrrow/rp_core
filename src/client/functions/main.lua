@@ -11,4 +11,6 @@ return {
     selectPaymentMethod = require(FUNCTIONS_PATH:format('selectPaymentMethod')),
     ---@type fun(key: string, duration: number): boolean
     hasCooldown = require(FUNCTIONS_PATH:format('hasCooldown')),
+    ---@type fun(points: vector4[]|vector3[], clearForVehicles: boolean?): vector4|vector3
+    reducePoints = require(FUNCTIONS_PATH:format('reducePoints')),
 }

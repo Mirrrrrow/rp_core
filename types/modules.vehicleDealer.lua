@@ -3,6 +3,7 @@
 ---@field radius number
 ---@field blip BlipDataRaw
 ---@field ped PedDataRaw
+---@field spawnpoints vector4[]
 ---@field vehicles table<string, VehicleDealerVehicleConfig>
 
 ---@class VehicleDealerVehicleConfig

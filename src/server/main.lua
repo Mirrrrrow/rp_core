@@ -1,10 +1,12 @@
 Server = {
-    functions = require 'src.server.functions.main',
+    functions = {},
     cache = {}
 }
 
 FUNCTIONS_PATH = 'src.server.functions.%s'
 MODULES_PATH = 'src.server.modules.%s'
+
+Server.functions = require 'src.server.functions.main'
 
 CreateThread(function()
     for moduleName, moduleState in pairs(lib.load('data.modules') --[[@as table<string, boolean|'client'|'server'|'shared'>]]) do
